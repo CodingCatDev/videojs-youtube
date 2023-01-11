@@ -1,6 +1,6 @@
-# videojs-youtube
+# videojs-codingcatdev-youtube
 
-YouTube Wrapper for Video.js
+Video.js Wrapper for YouTube
 
 ## Table of Contents
 
@@ -9,12 +9,12 @@ YouTube Wrapper for Video.js
 ## Installation
 
 ```sh
-npm install --save @codingcatdev/videojs-youtube
+npm install --save @codingcatdev/videojs-codingcatdev-youtube
 ```
 
 ## Usage
 
-To include videojs-youtube on your website or web application, use any of the following methods.
+To include videojs-codingcatdev-youtube on your website or web application, use any of the following methods.
 
 ### `<script>` Tag
 
@@ -22,17 +22,17 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ```html
 <script src="//path/to/video.min.js"></script>
-<script src="//path/to/videojs-youtube.min.js"></script>
+<script src="//path/to/videojs-codingcatdev-youtube.min.js"></script>
 <script>
   var player = videojs('my-video');
 
-  player.youtube();
+  player.codingcatdevYoutube();
 </script>
 ```
 
 ### Browserify/CommonJS
 
-When using with Browserify, install videojs-youtube via npm and `require` the plugin as you would any other module.
+When using with Browserify, install videojs-codingcatdev-youtube via npm and `require` the plugin as you would any other module.
 
 ```js
 var videojs = require('video.js');
@@ -40,11 +40,11 @@ var videojs = require('video.js');
 // The actual plugin function is exported by this module, but it is also
 // attached to the `Player.prototype`; so, there is no need to assign it
 // to a variable.
-require('@codingcatdev/videojs-youtube');
+require('@codingcatdev/videojs-codingcatdev-youtube');
 
 var player = videojs('my-video');
 
-player.youtube();
+player.codingcatdevYoutube();
 ```
 
 ### RequireJS/AMD
@@ -52,10 +52,10 @@ player.youtube();
 When using with RequireJS (or another AMD library), get the script in whatever way you prefer and `require` the plugin as you normally would:
 
 ```js
-require(['video.js', '@codingcatdev/videojs-youtube'], function(videojs) {
+require(['video.js', '@codingcatdev/videojs-codingcatdev-youtube'], function(videojs) {
   var player = videojs('my-video');
 
-  player.youtube();
+  player.codingcatdevYoutube();
 });
 ```
 

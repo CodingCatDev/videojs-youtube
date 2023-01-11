@@ -15,7 +15,7 @@ QUnit.test('the environment is sane', function(assert) {
   assert.strictEqual(typeof plugin, 'function', 'plugin is a function');
 });
 
-QUnit.module('videojs-youtube', {
+QUnit.module('videojs-codingcatdev-youtube', {
 
   beforeEach() {
 
@@ -41,18 +41,18 @@ QUnit.test('registers itself with video.js', function(assert) {
   assert.expect(2);
 
   assert.strictEqual(
-    typeof Player.prototype.youtube,
+    typeof Player.prototype.codingcatdevYoutube,
     'function',
-    'videojs-youtube plugin was registered'
+    'videojs-codingcatdev-youtube plugin was registered'
   );
 
-  this.player.youtube();
+  this.player.codingcatdevYoutube();
 
   // Tick the clock forward enough to trigger the player to be "ready".
   this.clock.tick(1);
 
   assert.ok(
-    this.player.hasClass('vjs-youtube'),
+    this.player.hasClass('vjs-codingcatdev-youtube'),
     'the plugin adds a class to the player'
   );
 });

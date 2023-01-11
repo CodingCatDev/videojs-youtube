@@ -11,10 +11,10 @@ const defaults = {};
  *
  * See: https://blog.videojs.com/feature-spotlight-advanced-plugins/
  */
-class Youtube extends Plugin {
+class CodingcatdevYoutube extends Plugin {
 
   /**
-   * Create a Youtube plugin instance.
+   * Create a CodingcatdevYoutube plugin instance.
    *
    * @param  {Player} player
    *         A Video.js Player instance.
@@ -33,18 +33,18 @@ class Youtube extends Plugin {
     this.options = videojs.mergeOptions(defaults, options);
 
     this.player.ready(() => {
-      this.player.addClass('vjs-youtube');
+      this.player.addClass('vjs-codingcatdev-youtube');
     });
   }
 }
 
 // Define default values for the plugin's `state` object here.
-Youtube.defaultState = {};
+CodingcatdevYoutube.defaultState = {};
 
 // Include the version number.
-Youtube.VERSION = VERSION;
+CodingcatdevYoutube.VERSION = VERSION;
 
 // Register the plugin with video.js.
-videojs.registerPlugin('youtube', Youtube);
+videojs.registerPlugin('codingcatdevYoutube', CodingcatdevYoutube);
 
-export default Youtube;
+export default CodingcatdevYoutube;

@@ -1,5 +1,5 @@
 /**
- * css for videojs-youtube
+ * css for videojs-codingcatdev-youtube
  * With the default plugins for postcss you can
  * - @import files, they will be inlined during build
  * - not worry about browser prefixes, they will be handled
@@ -19,7 +19,7 @@
 
 .video-js {
 
-  &.vjs-youtube {
+  &.vjs-codingcatdev-youtube {
     /* This class is added to the video.js element by the plugin by default. */
     display: block;
 
