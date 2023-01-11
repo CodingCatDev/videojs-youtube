@@ -7,6 +7,9 @@ var Tech = videojs.getTech("Tech");
 // Default options for the plugin.
 const defaults = {};
 
+// GLOBAL Instance
+let YOUTUBEINSTANCE;
+
 /**
  * An advanced Video.js plugin. For more information on the API
  *
@@ -46,7 +49,6 @@ class CodingcatdevYoutube extends Plugin {
  */
 class YouTube extends Tech {
   _isOnMobile = videojs?.browser?.IS_IOS || videojs?.browser?.IS_NATIVE_ANDROID;
-
   /**
    * Create an instance of this Tech.
    *
@@ -58,7 +60,7 @@ class YouTube extends Tech {
    */
   constructor(options, ready) {
     super(options, ready);
-
+    YOUTUBEINSTANCE = this;
     this.setPoster(options.poster);
     this.setSrc(this.options_.source, true);
 
@@ -73,11 +75,17 @@ class YouTube extends Tech {
    */
   apiLoaded() {
     YT.ready(function () {
-      YouTube.isApiReady = true;
+      console.debug(`CodingcatdevYoutube:YT:ready`);
 
-      for (var i = 0; i < YouTube.apiReadyQueue.length; ++i) {
-        YouTube.apiReadyQueue[i].initYTPlayer();
+      if (YOUTUBEINSTANCE.el_) {
+        YOUTUBEINSTANCE.el_.parentNode.className += " vjs-youtube";
+
+        if (this._isOnMobile) {
+          YOUTUBEINSTANCE.el_.parentNode.className += " vjs-youtube-mobile";
+        }
       }
+
+      YOUTUBEINSTANCE.initYTPlayer();
     });
   }
 
@@ -123,10 +131,10 @@ class YouTube extends Tech {
       }
     } else {
       //YouTube API hasn't finished loading or the player is already disposed
-      var index = YouTube.apiReadyQueue.indexOf(this);
-      if (index !== -1) {
-        YouTube.apiReadyQueue.splice(index, 1);
-      }
+      // var index = YouTube.apiReadyQueue.indexOf(this);
+      // if (index !== -1) {
+      //   YouTube.apiReadyQueue.splice(index, 1);
+      // }
     }
     this.ytPlayer = null;
 
@@ -140,6 +148,7 @@ class YouTube extends Tech {
   }
 
   initYTPlayer() {
+    console.debug(`CodingcatdevYoutube:YT:initYTPlayer`);
     var playerVars = {
       controls: 0,
       modestbranding: 1,
@@ -795,8 +804,6 @@ class YouTube extends Tech {
     head.appendChild(style);
   }
 }
-
-YouTube.apiReadyQueue = [];
 
 /**
  * Check if YouTube media is supported by this browser/device.
